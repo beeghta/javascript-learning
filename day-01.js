@@ -1,19 +1,28 @@
-const neuronName = "Excitatory Neuron";
-let membranePotential = -70;
 const threshold = -55;
-let stimulus = 20;
-let newPotential = membranePotential + stimulus;
+const neurons = [
+    { name: "Neuron A", potential: -70 },
+    { name: "Neuron B", potential: -50 },
+    { name: "Neuron C", potential: -60 },
+    { name: "Neuron D", potential: -40 },
+    { name: "Neuron E", potential: -55 }
+];
+const activeNeurons = [];
+const inactiveNeurons = [];
+let totalFiringPotential = 0;
+let numberOfFiringNeurons = 0;
 
-
-function checkShoot() {
-    if (newPotential > threshold) {
-        console.log("Strong firing!");
-    } else if (newPotential === threshold) {
-        console.log("Threshold reached.");
-    } else {
-        console.log("No firing");
+for (const neuron of neurons) {
+    if (neuron.potential >= threshold) {
+        console.log(neuron.name, "fires!");
+        activeNeurons.push(neuron);
+        totalFiringPotential += neuron.potential;
+        numberOfFiringNeurons += 1;
     }
+    else {
+        console.log(neuron.name, "does not fire.");
+        inactiveNeurons.push(neuron);
+    }
+
 }
-checkShoot();
-console.log(newPotential);
-console.log(neuronName);
+console.log("Firing neurons:", activeNeurons
+    , "Total firing potential:", totalFiringPotential, "Number of firing neurons:", numberOfFiringNeurons);
