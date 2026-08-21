@@ -1,4 +1,7 @@
-﻿
+﻿import {
+    analyzeNeurons
+} from "./neuronFunctions.js";
+
 const neurons = [
     { name: "Neuron A", potential: -70, threshold: -55 },
     { name: "Neuron B", potential: -50, threshold: -55 },
@@ -8,10 +11,6 @@ const neurons = [
 ];
 
 
-const hasFiringNeuron = neurons.some(
-    neuron => neuron.potential >= neuron.threshold
-);
+const report = analyzeNeurons(neurons);
 
-const allFiring = neurons.every(
-    neuron => neuron.potential >= neuron.threshold
-);
+console.log(report);

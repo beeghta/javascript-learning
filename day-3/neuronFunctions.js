@@ -32,11 +32,30 @@ const analyzeNeurons = (neurons) => {
         neuron => getFiringStatus(neuron)
     );
 
+    const hasFiringNeuron = neurons.some(
+        neuron => isFiring(neuron.potential, neuron.threshold)
+    );
+
+    const allNeuronsFiring = neurons.every(
+        neuron => isFiring(neuron.potential, neuron.threshold)
+    );
+
+    const sortedNeurons = [...neurons].sort(
+        (a, b) => a.potential - b.potential
+    );
+    const sortedNeuronInfo = sortedNeurons.map(
+        neuron => `${neuron.name}: ${neuron.potential}`
+    );
+
     const report = {
         firingNames,
         totalFiringPotential,
         firingStatuses,
-        numberOfFiringNeurons: firingNeurons.length
+        numberOfFiringNeurons: firingNeurons.length,
+        hasFiringNeuron,
+        allNeuronsFiring,
+        sortedNeurons,
+        sortedNeuronInfo
     };
 
     return report;
