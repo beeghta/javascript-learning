@@ -1,4 +1,4 @@
-\# JavaScript Learning Journey
+## JavaScript Learning Journey
 
 
 
@@ -8,7 +8,7 @@ modern JavaScript through daily practice and project-based exercises.
 
 
 
-\## Projects: Neuron Analyzer
+#### Projects: Neuron Analyzer
 
 
 
@@ -18,7 +18,7 @@ JavaScript concepts to a simple neuron simulation.
 
 
 
-\## Goal
+#### Goal
 
 
 
@@ -28,7 +28,7 @@ towards modern web development with React, Node.js and TypeScript.
 
 
 
-\## Learning Approach
+#### Learning Approach
 
 
 
@@ -48,21 +48,17 @@ Each day combines:
 
 
 
-\## Progress
+#### Progress
 
 
 
-| Day | Topics | Project |
-
-|---|---|---|
-
-| Day 1 | JavaScript Fundamentals | Neuron Analyzer |
-
-| Day 2 | Functions, Scope \& Arrow Functions | Neuron Analyzer v2 |
-
-| Day 3 | Coming soon | — |
+Day 1 Topics: JavaScript Fundamentals. Project: Neuron Analyzer 
 
 
 
+Day 2 Topics: Functions, Scope \& Arrow Functions. Project: Neuron Analyzer v2 
 
+
+
+Day 3 Topics: arrays objects and data transformation, Advanced Array Methods, Object Methods , Immutability, Nested Objects \& Arrays, Data Transformation. Project: Neuron Population Analyzer 
 
