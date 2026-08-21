@@ -8,6 +8,16 @@ modern JavaScript through daily practice and project-based exercises.
 
 
 
+\## Projects: Neuron Analyzer
+
+
+
+A small project used throughout the learning journey to apply
+
+JavaScript concepts to a simple neuron simulation.
+
+
+
 \## Goal
 
 
@@ -51,24 +61,6 @@ Each day combines:
 | Day 2 | Functions, Scope \& Arrow Functions | Neuron Analyzer v2 |
 
 | Day 3 | Coming soon | — |
-
-
-
-\## Projects
-
-
-
-\### Neuron Analyzer
-
-
-
-A small project used throughout the learning journey to apply
-
-JavaScript concepts to a simple neuron simulation.
-
-
-
-\## Repository Structure
 
 
 
