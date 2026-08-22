@@ -2,10 +2,6 @@
 
 
 
-# 
-
-
-
 ###### **Topics Learned:**
 
 * Object methods
@@ -13,13 +9,13 @@
 * Immutable Updates
 * Error Handling
 * try/catch/finally
-* throw 
+* throw
 * Custom Error
 * Filtering arrays based on conditions
 * Counting filtered results with .length
 * Creating structured reports
 * Processing validation results
-* ###### Advanced Array Methods
+* Advanced Array Methods
 
 
 
@@ -42,6 +38,4 @@ Counts valid neurons
 Counts invalid neurons
 
 Creates a structured report object
-
-
 
