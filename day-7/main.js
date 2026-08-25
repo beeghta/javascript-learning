@@ -25,3 +25,31 @@ neurons.forEach(neuron => {
 });
 
 console.log("Neuron simulation finished");
+
+
+const checkNeuron = neuron => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (neuron.potential >= neuron.threshold) {
+                resolve(`${neuron.name} fired!`);
+            } else {
+                reject(`${neuron.name} did not fire.`);
+            }
+        }, 1000);
+    });
+};
+
+const analyzeNeurons = async neurons => {
+    for (const neuron of neurons) {
+        try {
+            const result = await checkNeuron(neuron);
+            console.log(result);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+};
+
+console.log("Neuron analysis started");
+analyzeNeurons(neurons);
+console.log("Neuron analysis finished");

@@ -1,19 +1,22 @@
-Day 9 — Promise.all() + Multiple API Requests
+# Day 9 — Promise.all() + Multiple API Requests
+
+## 
+
+## Topics Learned:
 
 
 
-* Topics Learned:
 * Multiple asynchronous operations
-Promise.all()
-Combining map() with Promise.all()
-Parallel API requests
-Handling multiple API responses
-flatMap()
-Transforming multiple API responses
-Error handling with try...catch
-Working with real API data
+* Promise.all()
+* Combining map() with Promise.all()
+* Parallel API requests
+* Handling multiple API responses
+* flatMap()
+* Transforming multiple API responses
+* Error handling with try...catch
+* Working with real API data
 
-##### 
+### 
 
 ### Project:
 
@@ -29,7 +32,7 @@ Instead of requesting all neurons through a single API request, the application 
 
 
 
-Data Flow
+##### Data Flow
 
 Real Specimen IDs
 
@@ -97,7 +100,7 @@ const getNeuron = async specimenId => {
 
 &#x20;   const response = await fetch(
 
-&#x20;       `https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::criteria,\[specimen\_\_id$eq${specimenId}]`
+&#x20;       `https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::criteria,\\\\\\\[specimen\\\\\\\_\\\\\\\_id$eq${specimenId}]`
 
 &#x20;   );
 
@@ -483,7 +486,7 @@ https://api.brain-map.org/
 
 
 
-##### Next Step
+Next Step
 
 
 

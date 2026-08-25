@@ -1,4 +1,4 @@
-## Day 5 — Closures, IIFE \& Encapsulation
+## Day 6 — Closures, IIFE \& Encapsulation
 
 
 
@@ -12,6 +12,4 @@
 * IIFE + Private Array
 * Neuron Data
 * Neuron Processing with Private State
-
-
 

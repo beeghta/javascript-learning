@@ -1,8 +1,8 @@
-## Day 8 — Working with APIs \& Fetch
+Day 8 — Working with APIs \& Fetch
 
 
 
-###### **Topics Learned:**
+Topics Learned:
 
 * APIs and HTTP requests
 * fetch()
@@ -104,7 +104,7 @@ const getNeurons = async () => {
 
 &#x20;   const response = await fetch(
 
-&#x20;       `https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::options\[num\_rows$eq10]`
+&#x20;       `https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::options\\\\\\\[num\\\\\\\_rows$eq10]`
 
 &#x20;   );
 
