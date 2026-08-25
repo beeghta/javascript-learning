@@ -100,7 +100,7 @@ const getNeuron = async specimenId => {
 
 &#x20;   const response = await fetch(
 
-&#x20;       `https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::criteria,\\\\\\\[specimen\\\\\\\_\\\\\\\_id$eq${specimenId}]`
+&#x20;       `https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::criteria,\\\\\\\\\\\\\\\[specimen\\\\\\\\\\\\\\\_\\\\\\\\\\\\\\\_id$eq${specimenId}]`
 
 &#x20;   );
 

@@ -2,12 +2,15 @@
 
 ### 
 
-### Topics Learned: 
+### Topics Learned:
 
 * Testing with Node.js
 * API Data Processing \& Advanced Array Methods
 * Error Handling \& Data Validation
 * Separation of Concerns
+* Refactoring \& Clean Code
+
+
 
 
 

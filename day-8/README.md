@@ -1,4 +1,4 @@
-Day 8 — Working with APIs \& Fetch
+# Day 8 — Working with APIs \& Fetch
 
 
 
@@ -18,13 +18,13 @@ Topics Learned:
 * reduce()
 * Processing real-world data
 
-##### 
 
-### Project:
 
-##### Neuron Analyzer — Real Neuroscience Data
+Project:
 
-##### 
+Neuron Analyzer — Real Neuroscience Data
+
+
 
 In this project, I connected JavaScript to the Allen Cell Types Database API and worked with real neuroscience data instead of hard-coded neuron objects. The application retrieves real cell data, transforms the API response into a simplified neuron structure, identifies neurons based on firing rate, and calculates basic statistics.
 
@@ -104,7 +104,7 @@ const getNeurons = async () => {
 
 &#x20;   const response = await fetch(
 
-&#x20;       `https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::options\\\\\\\[num\\\\\\\_rows$eq10]`
+&#x20;       `https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::options\\\\\\\\\\\\\\\[num\\\\\\\\\\\\\\\_rows$eq10]`
 
 &#x20;   );
 

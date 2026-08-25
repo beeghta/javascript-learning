@@ -1,34 +1,32 @@
-const analyzeNeurons = neurons => {
-    const firingNeurons = neurons.filter(
-        neuron => neuron.firingRate >= 3
-    );
+import test from "node:test";
+import assert from "node:assert";
+import { analyzeNeurons } from "./analyzer.js";
 
-    const sortedNeurons = [...neurons].sort(
-        (a, b) => b.firingRate - a.firingRate
-    );
+test("analyze neurons should generate correct report", () => {
 
-    const totalFiringRate = neurons.reduce(
-        (sum, neuron) => sum + neuron.firingRate,
-        0
-    );
+    const neurons = [
+        {
+            name: "Neuron A",
+            firingRate: 2,
+            restingPotential: -70
+        },
+        {
+            name: "Neuron B",
+            firingRate: 5,
+            restingPotential: -60
+        },
+        {
+            name: "Neuron C",
+            firingRate: 8,
+            restingPotential: -65
+        }
+    ];
 
-    const averageFiringRate =
-        neurons.length > 0
-            ? totalFiringRate / neurons.length
-            : 0;
+    const report = analyzeNeurons(neurons);
 
-    const highestFiringNeuron = sortedNeurons[0];
-    const lowestFiringNeuron = sortedNeurons[sortedNeurons.length - 1];
-
-    return {
-        numberOfNeurons: neurons.length,
-        numberOfFiringNeurons: firingNeurons.length,
-        averageFiringRate,
-        highestFiringNeuron,
-        lowestFiringNeuron,
-        sortedNeurons
-    };
-};
-export {
-    analyzeNeurons
-};
+    assert.strictEqual(report.numberOfNeurons, 3);
+    assert.strictEqual(report.numberOfFiringNeurons, 2);
+    assert.strictEqual(report.averageFiringRate, 5);
+    assert.strictEqual(report.highestFiringNeuron.name, "Neuron C");
+    assert.strictEqual(report.lowestFiringNeuron.name, "Neuron A");
+});

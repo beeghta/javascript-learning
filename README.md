@@ -259,7 +259,7 @@ Day 5 Callback, Closure, Higher-Order Functions: Functions as arguments, Callbac
 
 
 
-Day 6 Closures, IIFE \& Encapsulation 
+Day 6 Closures, IIFE \& Encapsulation
 
 
 
@@ -267,9 +267,19 @@ Day 7 Asynchronous JavaScript \& Promises \& async/await: Promises, resolve(), r
 
 
 
-
-
 Day 8 APIs \& Fetch **Project**: Real Neuroscience Neuron Analyzer. The project moved from hard-coded neuron data to real data retrieved from the Allen Cell Types Database API.
+
+
+
+Day 9 Promise.all() + Multiple API Requests
+
+
+
+Day 10 Testing with Node.js,  DRY, Single Responsibility, Refactoring
+
+
+
+Day 11 npm
 
 
 
