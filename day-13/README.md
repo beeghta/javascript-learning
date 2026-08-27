@@ -6,7 +6,14 @@
 
 ### Topics Learned:
 
-* Static            
+* Static properties
+* Static methods
+* instanceof
+* Difference between static and instance members
+* Using class-level constants
+* Accessing shared configuration through a class
 
 &#x20;
+
+
 
