@@ -2,130 +2,91 @@
 
 
 
-A practical JavaScript learning journey focused on learning modern JavaScript through a single evolving project: Neuron Analyzer.
+A practical JavaScript learning journey focused on learning modern JavaScript through a single evolving project: Neuron Analyzer. The project started with simple hard-coded neuron data and gradually evolved into an application that retrieves and analyzes real neuroscience data from the Allen Cell Types Database API.
 
 
 
-The project started with simple hard-coded neuron data and gradually evolved into an application that retrieves and analyzes real neuroscience data from the Allen Cell Types Database API.
+Projects: Neuron Analyzer A small project used throughout the learning journey to apply JavaScript concepts to a simple neuron simulation.
 
 
 
-#### Projects: Neuron Analyzer
+Goal The goal of this repository is to build a strong foundation in modern JavaScript through practical, incremental development. Instead of learning JavaScript through many unrelated exercises, I am developing one continuous project and applying each new concept to the Neuron Analyzer. The long-term goal is to use these skills for:
 
 
 
-A small project used throughout the learning journey to apply
+Software Engineering
 
-JavaScript concepts to a simple neuron simulation.
+Web Development
 
+React
 
+Node.js
 
-#### Goal
+API Development
 
+Real-world data processing
 
-
-The goal of this repository is to build a strong foundation in modern JavaScript through practical, incremental development.
-
-
-
-Instead of learning JavaScript through many unrelated exercises, I am developing one continuous project and applying each new concept to the Neuron Analyzer.
-
-
-
-The long-term goal is to use these skills for:
-
-
-
-* Software Engineering
-* Web Development
-* React
-* Node.js
-* API Development
-* Real-world data processing
-
-#### 
-
-###### Main Project — Neuron Analyzer
-
-
-
-Neuron Analyzer is an evolving JavaScript project for retrieving, transforming, and analyzing neuron data.
+Main Project — Neuron Analyzer Neuron Analyzer is an evolving JavaScript project for retrieving, transforming, and analyzing neuron data.
 
 
 
 Project evolution
 
+
+
 Hard-coded neuron data
 
-&#x20;       ↓
 
-JavaScript Functions
 
-&#x20;       ↓
-
-Array Methods
-
-&#x20;       ↓
-
-Higher-Order Functions
-
-&#x20;       ↓
-
-Closures \& Modules
-
-&#x20;       ↓
-
-Asynchronous JavaScript
-
-&#x20;       ↓
-
-Promises
-
-&#x20;       ↓
-
-async / await
-
-&#x20;       ↓
-
-Real API
-
-&#x20;       ↓
-
-Real Neuroscience Data
-
-&#x20;       ↓
-
-Neuron Analysis
+↓ JavaScript Functions
 
 
 
-
-
-### Real Neuroscience API
-
-
-
-The project now uses the Allen Cell Types Database API from the Allen Institute.
+↓ Array Methods
 
 
 
-The API provides real neuroscience data from human and mouse cells, including electrophysiological and anatomical information.
+↓ Higher-Order Functions
 
 
 
-Data source
+↓ Closures \& Modules
 
 
 
-Allen Cell Types Database
+↓ Asynchronous JavaScript
 
 
 
-API:
+↓ Promises
 
 
 
-https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::options\[num\_rows$eq10]
+↓ async / await
+
+
+
+↓ Real API
+
+
+
+↓ Real Neuroscience Data
+
+
+
+↓ Neuron Analysis
+
+
+
+Real Neuroscience API The project now uses the Allen Cell Types Database API from the Allen Institute. The API provides real neuroscience data from human and mouse cells, including electrophysiological and anatomical information.
+
+
+
+Data source Allen Cell Types Database
+
+
+
+API: https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::options\\\[num\\\_rows$eq10]
 
 
 
@@ -133,7 +94,7 @@ The project retrieves real cell data and transforms the API response into simpli
 
 
 
-#### Current Neuron Data Model
+Current Neuron Data Model
 
 
 
@@ -143,49 +104,73 @@ The raw API contains many fields. The project extracts the fields that are curre
 
 {
 
-&#x20;   name,
 
-&#x20;   species,
 
-&#x20;   brainRegion,
+\&#x20;   name,
 
-&#x20;   layer,
 
-&#x20;   restingPotential,
 
-&#x20;   firingRate,
+\&#x20;   species,
 
-&#x20;   tau
+
+
+\&#x20;   brainRegion,
+
+
+
+\&#x20;   layer,
+
+
+
+\&#x20;   restingPotential,
+
+
+
+\&#x20;   firingRate,
+
+
+
+\&#x20;   tau
+
+
 
 }
 
-
-
-Example:
+Example: {
 
 
 
-{
+\&#x20;   name: "H15.06.017.03.04.01",
 
-&#x20;   name: "H15.06.017.03.04.01",
 
-&#x20;   species: "Homo Sapiens",
 
-&#x20;   brainRegion: "middle temporal gyrus",
+\&#x20;   species: "Homo Sapiens",
 
-&#x20;   layer: "3",
 
-&#x20;   restingPotential: -71.31,
 
-&#x20;   firingRate: 3.116,
+\&#x20;   brainRegion: "middle temporal gyrus",
 
-&#x20;   tau: 24.02
+
+
+\&#x20;   layer: "3",
+
+
+
+\&#x20;   restingPotential: -71.31,
+
+
+
+\&#x20;   firingRate: 3.116,
+
+
+
+\&#x20;   tau: 24.02
+
+
 
 }
 
-
-
-##### Current Analysis
+Current Analysis
 
 
 
@@ -195,13 +180,23 @@ The project currently demonstrates how to:
 
 Retrieve real neuron data from an API
 
+
+
 Transform API data into application objects
+
+
 
 Filter neurons by firing rate
 
+
+
 Extract neuron names
 
+
+
 Calculate total firing rate
+
+
 
 Calculate average firing rate
 
@@ -213,9 +208,9 @@ For the current learning exercise, a neuron is considered "firing" when: neuron.
 
 This is an educational criterion used for practicing JavaScript data processing and is not intended as a clinical or scientific definition of neuronal firing.
 
-#### 
 
-#### Learning Approach
+
+Learning Approach
 
 
 
@@ -225,15 +220,21 @@ Each day combines:
 
 \- New JavaScript concepts
 
+
+
 \- Practical coding
 
+
+
 \- Project improvements
+
+
 
 \- Git and GitHub practice
 
 
 
-#### Learning Roadmap
+Learning Roadmap
 
 
 
@@ -242,6 +243,8 @@ Day 1 Topics: JavaScript Fundamentals: Node.js - VS Code - Git \& GitHub - Varia
 
 
 Day 2 Topics: Functions, Parameters, Return values, Scope \& Arrow Functions, Array Methods, Objects \& Destructuring, Spread \& Rest, Modules, Callback Functions
+
+
 
 Array of Objects, filter(), map(), reduce().
 
@@ -267,7 +270,7 @@ Day 7 Asynchronous JavaScript \& Promises \& async/await: Promises, resolve(), r
 
 
 
-Day 8 APIs \& Fetch **Project**: Real Neuroscience Neuron Analyzer. The project moved from hard-coded neuron data to real data retrieved from the Allen Cell Types Database API.
+Day 8 APIs \& Fetch Project: Real Neuroscience Neuron Analyzer. The project moved from hard-coded neuron data to real data retrieved from the Allen Cell Types Database API.
 
 
 
@@ -275,11 +278,27 @@ Day 9 Promise.all() + Multiple API Requests
 
 
 
-Day 10 Testing with Node.js,  DRY, Single Responsibility, Refactoring
+Day 10 Testing with Node.js, DRY, Single Responsibility, Refactoring
 
 
 
 Day 11 npm
+
+
+
+Day 12 Composition, Inheritance \& Polymorphism
+
+
+
+Day 13 Static Methods \& Properties
+
+
+
+Day 14 Error Handling
+
+
+
+Day 15 Promise.allSettled()
 
 
 
@@ -289,47 +308,45 @@ Current architecture:
 
 Allen API
 
-&#x20;  ↓
 
-fetch()
 
-&#x20;  ↓
-
-JSON Response
-
-&#x20;  ↓
-
-data.msg
-
-&#x20;  ↓
-
-createNeuron()
-
-&#x20;  ↓
-
-Neuron Objects
-
-&#x20;  ↓
-
-filter()
-
-&#x20;  ↓
-
-map()
-
-&#x20;  ↓
-
-reduce()
-
-&#x20;  ↓
-
-Neuron Statistics
+↓ fetch()
 
 
 
-## 
+↓ JSON Response
 
-## Purpose
+
+
+↓ data.msg
+
+
+
+↓ createNeuron()
+
+
+
+↓ Neuron Objects
+
+
+
+↓ filter()
+
+
+
+↓ map()
+
+
+
+↓ reduce()
+
+
+
+↓ Neuron Statistics
+
+
+
+Purpose
 
 
 
