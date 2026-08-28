@@ -1,0 +1,14 @@
+{
+  "name": "neuron-analyzer",
+  "version": "1.0.0",
+  "description": "Neuron Analyzer - JavaScript learning project",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "node --test **/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

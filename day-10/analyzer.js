@@ -1,32 +1,52 @@
-import test from "node:test";
-import assert from "node:assert";
-import { analyzeNeurons } from "./analyzer.js";
+const FIRING_RATE_THRESHOLD = 3;
 
-test("analyze neurons should generate correct report", () => {
+const getFiringNeurons = neurons => {
+    return neurons.filter(
+        neuron => neuron.firingRate >= FIRING_RATE_THRESHOLD
+    );
+};
 
-    const neurons = [
-        {
-            name: "Neuron A",
-            firingRate: 2,
-            restingPotential: -70
-        },
-        {
-            name: "Neuron B",
-            firingRate: 5,
-            restingPotential: -60
-        },
-        {
-            name: "Neuron C",
-            firingRate: 8,
-            restingPotential: -65
-        }
-    ];
+const sortNeuronsByFiringRate = neurons => {
+    return [...neurons].sort(
+        (a, b) => b.firingRate - a.firingRate
+    );
+};
 
-    const report = analyzeNeurons(neurons);
+const calculateAverageFiringRate = neurons => {
+    if (neurons.length === 0) {
+        return 0;
+    }
 
-    assert.strictEqual(report.numberOfNeurons, 3);
-    assert.strictEqual(report.numberOfFiringNeurons, 2);
-    assert.strictEqual(report.averageFiringRate, 5);
-    assert.strictEqual(report.highestFiringNeuron.name, "Neuron C");
-    assert.strictEqual(report.lowestFiringNeuron.name, "Neuron A");
-});
+    const totalFiringRate = neurons.reduce(
+        (sum, neuron) => sum + neuron.firingRate,
+        0
+    );
+
+    return totalFiringRate / neurons.length;
+};
+
+const analyzeNeurons = neurons => {
+    const firingNeurons = getFiringNeurons(neurons);
+
+    const sortedNeurons = sortNeuronsByFiringRate(neurons);
+
+    const averageFiringRate =
+        calculateAverageFiringRate(neurons);
+
+    return {
+        numberOfNeurons: neurons.length,
+        numberOfFiringNeurons: firingNeurons.length,
+        averageFiringRate,
+        highestFiringNeuron: sortedNeurons[0],
+        lowestFiringNeuron:
+            sortedNeurons[sortedNeurons.length - 1],
+        sortedNeurons
+    };
+};
+
+export {
+    analyzeNeurons,
+    getFiringNeurons,
+    sortNeuronsByFiringRate,
+    calculateAverageFiringRate
+};
