@@ -1,6 +1,9 @@
 const isValidNeuron = neuron => {
     return (
-        Boolean(neuron.name) &&
+        typeof neuron === "object" &&
+        neuron !== null &&
+        typeof neuron.name === "string" &&
+        neuron.name.trim().length > 0 &&
         Number.isFinite(neuron.firingRate) &&
         Number.isFinite(neuron.restingPotential)
     );

@@ -15,3 +15,16 @@ test("invalid neuron should return false", () => {
         false
     );
 });
+test("neuron with invalid name should return false", () => {
+
+    const neuron = {
+        name: "   ",
+        firingRate: 3.5,
+        restingPotential: -70
+    };
+
+    assert.strictEqual(
+        isValidNeuron(neuron),
+        false
+    );
+});
