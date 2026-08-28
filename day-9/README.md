@@ -1,8 +1,7 @@
-# Day 9 — Promise.all() + Multiple API Requests
+Day 9 — Promise.all() , Promise.allSettled() + Multiple API Requests
 
-## 
 
-## Topics Learned:
+Topics Learned:
 
 
 
@@ -16,9 +15,8 @@
 * Error handling with try...catch
 * Working with real API data
 
-### 
 
-### Project:
+ Project:
 
 Neuron Analyzer — Multiple Real API Requests
 
@@ -32,7 +30,7 @@ Instead of requesting all neurons through a single API request, the application 
 
 
 
-##### Data Flow
+Data Flow
 
 Real Specimen IDs
 
