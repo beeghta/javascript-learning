@@ -274,7 +274,7 @@ Day 8 APIs \& Fetch Project: Real Neuroscience Neuron Analyzer. The project move
 
 
 
-Day 9 Promise.all() + Multiple API Requests
+Day 9 Promise.all(), Promise.allSettled() + Multiple API Requests 
 
 
 
@@ -282,7 +282,7 @@ Day 10 Testing with Node.js, DRY, Single Responsibility, Refactoring
 
 
 
-Day 11 npm
+Day 11 npm, package.json, dependencies, devDependencies, constructor, class, Methods, Separation of Responsibility
 
 
 
@@ -298,7 +298,19 @@ Day 14 Error Handling
 
 
 
-Day 15 Promise.allSettled()
+Day 15 DOM Manipulation \& Events , GET / POST / PUT / DELETE , Forms , Events
+
+
+
+Day 16 this, Higher-Order Function, Closure, Callback, Event Loop
+
+
+
+Day 17 LocalStorage, SessionStorage
+
+
+
+Day 18 Node.js
 
 
 
