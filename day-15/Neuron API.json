@@ -1,0 +1,156 @@
+{
+  "uuid": "460a8437-3803-4c46-ba1b-d38708df5e1b",
+  "lastMigration": 33,
+  "name": "Neuron API",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "16cb6b62-28fc-4a89-83a4-f7deed7d7b3d",
+      "type": "http",
+      "documentation": "neurons",
+      "method": "get",
+      "endpoint": "",
+      "responses": [
+        {
+          "uuid": "81aa5a27-b7bf-4bb4-a1de-c9275965c751",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "2fb02d5e-a7f6-4c08-9391-f3a6ea05b3be",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "5ed12c8b-37a2-4c6d-bf87-394c2727ccf2",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "neurons",
+      "responses": [
+        {
+          "uuid": "85ba2bbe-39d9-48f2-a6a1-c7d511c1b934",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "glkq",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "16cb6b62-28fc-4a89-83a4-f7deed7d7b3d"
+    },
+    {
+      "type": "route",
+      "uuid": "5ed12c8b-37a2-4c6d-bf87-394c2727ccf2"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "32d77d5d-60cf-4548-8b66-74985c6efbf5",
+      "id": "glkq",
+      "name": "neurons",
+      "documentation": "",
+      "value": "[\r\n    {\r\n        \"id\": 1,\r\n        \"name\": \"Neuron Alpha\",\r\n        \"activity\": 0.95\r\n    },\r\n    {\r\n        \"id\": 2,\r\n        \"name\": \"Neuron Beta\",\r\n        \"activity\": 0.72\r\n    },\r\n    {\r\n        \"id\": 3,\r\n        \"name\": \"Neuron Gamma\",\r\n        \"activity\": 0.31\r\n    }\r\n]\r\n"
+    }
+  ],
+  "callbacks": []
+}
