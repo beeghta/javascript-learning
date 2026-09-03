@@ -1,0 +1,26 @@
+[
+  {
+    "id": "01",
+    "name": "Neuron Alpha",
+    "activity": 95,
+    "threshold": 70
+  },
+  {
+    "id": "02",
+    "name": "Neuron Beta",
+    "activity": 0.72,
+    "threshold": 60
+  },
+  {
+    "id": "03",
+    "name": "Neuron Gamma",
+    "activity": 0.31,
+    "threshold": 80
+  },
+  {
+    "id": "04",
+    "name": "Neuron Delta",
+    "activity": 0.88,
+    "threshold": 40
+  }
+]
