@@ -21,5 +21,15 @@
     "id": 4,
     "name": "Neuron Delta",
     "activity": 0.88
+  },
+  {
+    "id": 5,
+    "name": "Neuron Delta",
+    "activity": 0.88
+  },
+  {
+    "id": 6,
+    "name": "Neuron Delta",
+    "activity": 0.88
   }
 ]
