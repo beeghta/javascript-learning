@@ -4,7 +4,8 @@
 
 ###### **Topics Learned:**
 
-* modules /require()
+* ES modules /require()
+* import/export
 * npm /npm install package / node\_modules
 * uuid
 
