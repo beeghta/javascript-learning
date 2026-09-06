@@ -1,0 +1,94 @@
+import { readNeurons, writeNeurons } from "../models/neuronModel.js";
+
+const generateNeuronId = (neurons) => {
+    if (neurons.length === 0) {
+        return 1;
+    }
+
+    const maxId = Math.max(...neurons.map(neuron => neuron.id));
+    return maxId + 1;
+};
+
+const getAllNeurons = async () => {
+    const neurons = await readNeurons();
+    return neurons;
+};
+
+const getNeuronById = async (id) => {
+    const neurons = await readNeurons();
+
+    return neurons.find(neuron => neuron.id === id);
+};
+
+const getNeuronStatus = async (id) => {
+    const neurons = await readNeurons();
+
+    const neuron = neurons.find(neuron => neuron.id === id);
+
+    if (!neuron) {
+        return null;
+    }
+
+    return {
+        name: neuron.name,
+        status: neuron.activity >= 0.8 ? "firing" : "inactive"
+    };
+};
+
+const createNeuron = async (name, activity) => {
+    const neurons = await readNeurons();
+
+    const newNeuron = {
+        id: generateNeuronId(neurons),
+        name,
+        activity
+    };
+
+    neurons.push(newNeuron);
+
+    await writeNeurons(neurons);
+
+    return newNeuron;
+};
+
+const updateNeuron = async (id, name, activity) => {
+    const neurons = await readNeurons();
+
+    const neuron = neurons.find(neuron => neuron.id === id);
+
+    if (!neuron) {
+        return null;
+    }
+
+    neuron.name = name;
+    neuron.activity = activity;
+
+    await writeNeurons(neurons);
+
+    return neuron;
+};
+
+const deleteNeuron = async (id) => {
+    const neurons = await readNeurons();
+
+    const index = neurons.findIndex(neuron => neuron.id === id);
+
+    if (index === -1) {
+        return null;
+    }
+
+    const deletedNeuron = neurons.splice(index, 1)[0];
+
+    await writeNeurons(neurons);
+
+    return deletedNeuron;
+};
+
+export {
+    getAllNeurons,
+    getNeuronById,
+    getNeuronStatus,
+    createNeuron,
+    updateNeuron,
+    deleteNeuron
+};
