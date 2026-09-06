@@ -7,6 +7,7 @@ import {
     getNeuronStatus as getNeuronStatusService,
     createNeuron as createNeuronService,
     updateNeuron as updateNeuronService,
+    getFiringNeurons as getFiringNeuronsService,
     deleteNeuron as deleteNeuronService
 } from "../services/neuronService.js";
 
@@ -32,11 +33,7 @@ const getNeuronById = asyncHandler(async (request, response, next) => {
 
 
 const getFiringNeurons = asyncHandler(async (request, response) => {
-    const neurons = await getAllNeuronsService();
-
-    const firingNeurons = neurons.filter(
-        neuron => neuron.activity >= 0.8
-    );
+    const firingNeurons = await getFiringNeuronsService();
 
     response.json(firingNeurons);
 });
@@ -94,7 +91,7 @@ const deleteNeuron = asyncHandler(async (request, response, next) => {
         return next(new AppError("Neuron not found", 404));
     }
 
-    response.json(deletedNeuron);
+    response.status(204).send();
 });
 
 

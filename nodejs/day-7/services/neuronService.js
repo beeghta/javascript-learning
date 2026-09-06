@@ -83,12 +83,19 @@ const deleteNeuron = async (id) => {
 
     return deletedNeuron;
 };
+const getFiringNeurons = async () => {
+    const neurons = await readNeurons();
 
+    return neurons.filter(
+        neuron => neuron.activity >= 0.8
+    );
+};
 export {
     getAllNeurons,
     getNeuronById,
     getNeuronStatus,
     createNeuron,
     updateNeuron,
-    deleteNeuron
+    deleteNeuron,
+    getFiringNeurons
 };
