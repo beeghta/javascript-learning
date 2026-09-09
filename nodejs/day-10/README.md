@@ -64,27 +64,20 @@ admin
 
 Permissions for user:
 
-View neurons
-
-Search neurons
-
-View neuron status
+* View neurons
+* Search neurons
+* View neuron status
 
 
 
 Permissions for Admin:
 
-Create neuron
-
-Update neuron
-
-Delete neuron
-
-View neurons
-
-Search neurons
-
-View neuron status
+* Create neuron
+* Update neuron
+* Delete neuron
+* View neurons
+* Search neurons
+* View neuron status
 
 
 
