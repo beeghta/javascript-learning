@@ -1,370 +1,194 @@
-## JavaScript Learning Journey
+# JavaScript
+
+The JavaScript stage focused on building a strong foundation in modern JavaScript through the continuous development of the Neuron project.
+
+### Main Topics
+
+* JavaScript Fundamentals
+* Variables, Data Types & Operators
+* Conditions & Control Flow
+* Functions, Scope & Arrow Functions
+* Arrays & Objects
+* Array Methods: `map()`, `filter()`, `find()`, `reduce()`
+* Destructuring
+* Spread & Rest Operators
+* Immutability
+* Higher-Order Functions
+* Callback Functions
+* Closures
+* IIFE & Encapsulation
+* JavaScript Modules
+* `this`
+* Event Loop
+* Asynchronous JavaScript
+* Promises
+* `async / await`
+* `Promise.all()` & `Promise.allSettled()`
+* Fetch API
+* REST API concepts
+* DOM Manipulation
+* Event Handling
+* Forms
+* LocalStorage & SessionStorage
+* Error Handling
+* Object-Oriented Programming
+* Classes, Constructors & Methods
+* Composition, Inheritance & Polymorphism
+* Static Methods & Properties
+* Testing & Refactoring
+* DRY & Single Responsibility
+* Git & GitHub
+
+The JavaScript stage also introduced real-world API integration through the **Allen Cell Types Database**, allowing the Neuron project to work with real neuroscience data rather than only hard-coded data.
+
+The detailed progression of this stage is documented in the [`javascript/`](./javascript/) folder.
 
 
+---
 
-A practical JavaScript learning journey focused on learning modern JavaScript through a single evolving project: Neuron Analyzer. The project started with simple hard-coded neuron data and gradually evolved into an application that retrieves and analyzes real neuroscience data from the Allen Cell Types Database API.
+# Node.js / Backend
 
+The Node.js section progressed from core Node.js concepts to a complete REST API.
 
+Main topics:
 
-Projects: Neuron Analyzer A small project used throughout the learning journey to apply JavaScript concepts to a simple neuron simulation.
+* Node.js fundamentals
+* ES Modules
+* File system
+* HTTP server
+* HTTP methods
+* Routing
+* REST API
+* Express
+* Express Router
+* Middleware
+* Request validation
+* Error handling
+* Service layer
+* Separation of Concerns
+* SQLite
+* SQL queries
+* CRUD
+* Pagination
+* Search
+* API versioning
+* CORS
+* Environment variables
+* Authentication concepts
+* Jest
+* Supertest
+* Mocking
+* Integration testing
+* Test database
 
+---
 
+# React
 
-Goal The goal of this repository is to build a strong foundation in modern JavaScript through practical, incremental development. Instead of learning JavaScript through many unrelated exercises, I am developing one continuous project and applying each new concept to the Neuron Analyzer. The long-term goal is to use these skills for:
+The React section focuses on building a frontend for the existing Neuron REST API.
 
+Current topics:
 
+* Vite
+* Components
+* JSX
+* Props
+* `map()`
+* `key`
+* Conditional rendering
+* Event handling
+* `useState`
+* `useEffect`
+* Controlled inputs
+* Forms
+* Validation
+* Fetch API
+* GET
+* POST
+* PUT
+* DELETE
+* Loading states
+* Error states
+* Parent-child communication
+* Frontend/backend integration
 
-Software Engineering
+---
 
-Web Development
+# Repository Structure
 
-React
+```text
+javascript-learning/
+│
+├── javascript/
+│   └── JavaScript learning exercises and projects
+│
+├── nodejs/
+│   └── day-9/
+│       ├── controllers/
+│       ├── database/
+│       ├── errors/
+│       ├── middleware/
+│       ├── models/
+│       ├── routes/
+│       ├── services/
+│       ├── tests/
+│       ├── index.js
+│       └── package.json
+│
+└── react/
+    ├── src/
+    ├── public/
+    ├── package.json
+    └── README.md
+```
 
+---
+
+# Learning Approach
+
+Each stage combines:
+
+* New programming concepts
+* Practical coding
+* Improvements to the same project
+* Git and GitHub practice
+* Refactoring
+* Real API integration
+* Backend development
+* Frontend development
+
+The project is intentionally developed incrementally so that each new technology builds on concepts learned previously.
+
+---
+
+# Current Architecture
+
+```text
+Allen Cell Types API
+        ↓
+JavaScript Data Processing
+        ↓
 Node.js
-
-API Development
-
-Real-world data processing
-
-Main Project — Neuron Analyzer Neuron Analyzer is an evolving JavaScript project for retrieving, transforming, and analyzing neuron data.
-
-
-
-Project evolution
-
-
-
-Hard-coded neuron data
-
-
-
-↓ JavaScript Functions
-
-
-
-↓ Array Methods
-
-
-
-↓ Higher-Order Functions
-
-
-
-↓ Closures \& Modules
-
-
-
-↓ Asynchronous JavaScript
-
-
-
-↓ Promises
-
-
-
-↓ async / await
-
-
-
-↓ Real API
-
-
-
-↓ Real Neuroscience Data
-
-
-
-↓ Neuron Analysis
-
-
-
-Real Neuroscience API The project now uses the Allen Cell Types Database API from the Allen Institute. The API provides real neuroscience data from human and mouse cells, including electrophysiological and anatomical information.
-
-
-
-Data source Allen Cell Types Database
-
-
-
-API: https://api.brain-map.org/api/v2/data/query.json?criteria=model::ApiCellTypesSpecimenDetail,rma::options\\\[num\\\_rows$eq10]
-
-
-
-The project retrieves real cell data and transforms the API response into simplified application-specific Neuron objects.
-
-
-
-Current Neuron Data Model
-
-
-
-The raw API contains many fields. The project extracts the fields that are currently relevant:
-
-
-
-{
-
-
-
-\&#x20;   name,
-
-
-
-\&#x20;   species,
-
-
-
-\&#x20;   brainRegion,
-
-
-
-\&#x20;   layer,
-
-
-
-\&#x20;   restingPotential,
-
-
-
-\&#x20;   firingRate,
-
-
-
-\&#x20;   tau
-
-
-
-}
-
-Example: {
-
-
-
-\&#x20;   name: "H15.06.017.03.04.01",
-
-
-
-\&#x20;   species: "Homo Sapiens",
-
-
-
-\&#x20;   brainRegion: "middle temporal gyrus",
-
-
-
-\&#x20;   layer: "3",
-
-
-
-\&#x20;   restingPotential: -71.31,
-
-
-
-\&#x20;   firingRate: 3.116,
-
-
-
-\&#x20;   tau: 24.02
-
-
-
-}
-
-Current Analysis
-
-
-
-The project currently demonstrates how to:
-
-
-
-Retrieve real neuron data from an API
-
-
-
-Transform API data into application objects
-
-
-
-Filter neurons by firing rate
-
-
-
-Extract neuron names
-
-
-
-Calculate total firing rate
-
-
-
-Calculate average firing rate
-
-
-
-For the current learning exercise, a neuron is considered "firing" when: neuron.firingRate >= 3
-
-
-
-This is an educational criterion used for practicing JavaScript data processing and is not intended as a clinical or scientific definition of neuronal firing.
-
-
-
-Learning Approach
-
-
-
-Each day combines:
-
-
-
-\- New JavaScript concepts
-
-
-
-\- Practical coding
-
-
-
-\- Project improvements
-
-
-
-\- Git and GitHub practice
-
-
-
-Learning Roadmap
-
-
-
-Day 1 Topics: JavaScript Fundamentals: Node.js - VS Code - Git \& GitHub - Variables - Data Types - Operators - Conditions - Basic JavaScript syntax
-
-
-
-Day 2 Topics: Functions, Parameters, Return values, Scope \& Arrow Functions, Array Methods, Objects \& Destructuring, Spread \& Rest, Modules, Callback Functions
-
-
-
-Array of Objects, filter(), map(), reduce().
-
-
-
-Day 3 Topics: arrays objects and data transformation: Advanced Array Methods, Object Methods, Immutability, Nested Objects \& Arrays, Data Transformation.
-
-
-
-Day 4 Array Validation \& Data Processing: Data validation, Working with arrays of objects.
-
-
-
-Day 5 Callback, Closure, Higher-Order Functions: Functions as arguments, Callback functions, Returning functions, Function composition, Reusable functions
-
-
-
-Day 6 Closures, IIFE \& Encapsulation
-
-
-
-Day 7 Asynchronous JavaScript \& Promises \& async/await: Promises, resolve(), reject(), async, await, Sequential asynchronous operations
-
-
-
-Day 8 APIs \& Fetch Project: Real Neuroscience Neuron Analyzer. The project moved from hard-coded neuron data to real data retrieved from the Allen Cell Types Database API.
-
-
-
-Day 9 Promise.all(), Promise.allSettled() + Multiple API Requests 
-
-
-
-Day 10 Testing with Node.js, DRY, Single Responsibility, Refactoring
-
-
-
-Day 11 npm, package.json, dependencies, devDependencies, constructor, class, Methods, Separation of Responsibility
-
-
-
-Day 12 Composition, Inheritance \& Polymorphism
-
-
-
-Day 13 Static Methods \& Properties
-
-
-
-Day 14 Error Handling
-
-
-
-Day 15 DOM Manipulation \& Events , GET / POST / PUT / DELETE , Forms , Events
-
-
-
-Day 16 this, Higher-Order Function, Closure, Callback, Event Loop
-
-
-
-Day 17 LocalStorage, SessionStorage
-
-
-
-Day 18 Node.js
-
-
-
-Current architecture:
-
-
-
-Allen API
-
-
-
-↓ fetch()
-
-
-
-↓ JSON Response
-
-
-
-↓ data.msg
-
-
-
-↓ createNeuron()
-
-
-
-↓ Neuron Objects
-
-
-
-↓ filter()
-
-
-
-↓ map()
-
-
-
-↓ reduce()
-
-
-
-↓ Neuron Statistics
-
-
-
-Purpose
-
-
+        ↓
+Express REST API
+        ↓
+SQLite
+        ↑
+        │
+      HTTP
+        │
+        ↓
+React Neuron Dashboard
+```
+
+The current goal is to continue developing the Neuron application while strengthening practical skills in **JavaScript, Software Engineering, Backend Development, and React**.
+
+---
+
+# Purpose
 
 This repository documents my transition from traditional web development toward modern JavaScript and Software Engineering.
 
+The project combines programming practice with my interest in neuroscience and provides a practical way to learn software development through one continuously evolving application.
 
-
-The project combines programming practice with my interest in neuroscience and provides a practical way to learn JavaScript through a continuously evolving application.
-
+Rather than treating each technology as an isolated subject, this repository demonstrates the progression from JavaScript fundamentals to a working full-stack application.
