@@ -130,3 +130,32 @@ span{
 button{
     margin:5px;
 }
+.topcard {
+    display: flow-root;
+    margin: 60px 19px 0 0px;
+}
+.filterbox {
+    display: flex;
+    float: right;
+}
+
+.addNeuron {
+    display: flex;
+    float: left;
+    
+}
+input {
+    border-radius: 6px;
+    border: solid 0px;
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+button {
+    border-radius: 6px;
+    border: solid 0px;
+    padding: 5px 10px;
+    margin: 0 5px;
+}
+.btncard {
+    float: inline-end;
+}

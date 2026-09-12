@@ -1,26 +1,31 @@
 import { useState } from "react";
+import { useNeuron } from "./NeuronContext.jsx";
 
 function NeuronCard({
     id,
     name,
     activity,
-    onChangeActivity,
-    onDeleteNeuron,
     isUpdating,
     isDeleting
 }) {
     const [newActivity, setNewActivity] = useState("");
 
-    const statusClass = activity >= 0.8
-        ? "firing"
-        : "inactive";
+    const {
+        handleUpdateNeuron,
+        handleDeleteNeuron
+    } = useNeuron();
+
+    const statusClass =
+        activity >= 0.8
+            ? "firing"
+            : "inactive";
 
     const handleResetActivity = () => {
-        onChangeActivity(id, 0);
+        handleUpdateNeuron(id, 0);
     };
 
     const handleUpdateActivity = () => {
-        onChangeActivity(
+        handleUpdateNeuron(
             id,
             Number(newActivity)
         );
@@ -37,38 +42,53 @@ function NeuronCard({
             </span>
 
             <span>
-                Status: {activity >= 0.8
-                    ? " Firing"
-                    : " Inactive"}
+                Status:{" "}
+                {activity >= 0.8
+                    ? "Firing"
+                    : "Inactive"}
             </span>
-
+            <div className="btncard">
             <input
                 type="number"
                 step="0.01"
+                min="0"
+                max="1"
                 placeholder="New activity"
                 value={newActivity}
                 onChange={(event) =>
-                    setNewActivity(event.target.value)
+                    setNewActivity(
+                        event.target.value
+                    )
                 }
             />
-
+            
             <button
                 onClick={handleUpdateActivity}
                 disabled={isUpdating}
             >
-                {isUpdating ? "Updating..." : "Update Activity"}
+                {isUpdating
+                    ? "Updating..."
+                    : "Update Activity"}
             </button>
 
-            <button onClick={handleResetActivity}>
+            <button
+                onClick={handleResetActivity}
+                disabled={isUpdating}
+            >
                 Reset Activity
             </button>
 
             <button
-                onClick={() => onDeleteNeuron(id)}
+                onClick={() =>
+                    handleDeleteNeuron(id)
+                }
                 disabled={isDeleting}
             >
-                {isDeleting ? "Deleting..." : "Delete"}
-            </button>
+                {isDeleting
+                    ? "Deleting..."
+                    : "Delete"}
+                </button>
+            </div>
         </div>
     );
 }
