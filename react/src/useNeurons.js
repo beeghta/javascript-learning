@@ -1,17 +1,123 @@
-import { useEffect, useState } from "react";
+import {
+    useEffect,
+    useReducer,
+    useState
+} from "react";
+
+
+const initialState = {
+    neurons: [],
+    loading: true,
+    error: null,
+    updatingNeuronId: null,
+    deletingNeuronId: null,
+    isSubmitting: false
+};
+
+
+function neuronReducer(state, action) {
+    switch (action.type) {
+        case "LOAD_SUCCESS":
+            return {
+                ...state,
+                neurons: action.payload,
+                loading: false
+            };
+
+        case "LOAD_ERROR":
+            return {
+                ...state,
+                error: action.payload,
+                loading: false
+            };
+        case "UPDATE_SUCCESS":
+            return {
+                ...state,
+                neurons: state.neurons.map(
+                    (neuron) =>
+                        neuron.id === action.payload.id
+                            ? action.payload
+                            : neuron
+                ),
+                updatingNeuronId: null
+            };
+        case "DELETE_START":
+            return {
+                ...state,
+                deletingNeuronId: action.payload
+            };
+        case "DELETE_SUCCESS":
+            return {
+                ...state,
+                neurons: state.neurons.filter(
+                    (neuron) => neuron.id !== action.payload
+                ),
+                deletingNeuronId: null
+            };
+        case "ADD_SUCCESS":
+            return {
+                ...state,
+                neurons: [
+                    ...state.neurons,
+                    action.payload
+                ]
+            };
+        case "UPDATE_START":
+            return {
+                ...state,
+                updatingNeuronId: action.payload
+            };
+        case "ADD_START":
+            return {
+                ...state,
+                isSubmitting: true
+            };
+
+        case "ADD_SUCCESS":
+            return {
+                ...state,
+                neurons: [
+                    ...state.neurons,
+                    action.payload
+                ],
+                isSubmitting: false
+            };
+        case "ADD_ERROR":
+            return {
+                ...state,
+                error: action.payload,
+                isSubmitting: false
+            };
+        default:
+            return state;
+    }
+}
+
 
 function useNeurons() {
-    const [neurons, setNeurons] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
-    const [updatingNeuronId, setUpdatingNeuronId] = useState(null);
-    const [deletingNeuronId, setDeletingNeuronId] = useState(null);
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [state, dispatch] = useReducer(
+        neuronReducer,
+        initialState
+    );
+
+    const {
+        neurons,
+        loading,
+        error,
+        updatingNeuronId,
+        deletingNeuronId,
+        isSubmitting
+    } = state;
+
+
 
     useEffect(() => {
+
         const loadNeurons = async () => {
+
             try {
+
                 const response = await fetch(
                     "http://localhost:3000/api/v1/neurons"
                 );
@@ -22,23 +128,40 @@ function useNeurons() {
                     );
                 }
 
-                const data = await response.json();
+                const data =
+                    await response.json();
 
-                setNeurons(data.data);
+                dispatch({
+                    type: "LOAD_SUCCESS",
+                    payload: data.data
+                });
+
             } catch (error) {
-                setError(error.message);
-            } finally {
-                setLoading(false);
+
+                dispatch({
+                    type: "LOAD_ERROR",
+                    payload: error.message
+                });
             }
         };
 
         loadNeurons();
+
     }, []);
 
-    const handleUpdateNeuron = async (id, activity) => {
-        setUpdatingNeuronId(id);
+
+    const handleUpdateNeuron = async (
+        id,
+        activity
+    ) => {
+
+        dispatch({
+            type: "UPDATE_START",
+            payload: id
+        });
 
         try {
+
             const neuron = neurons.find(
                 (neuron) => neuron.id === id
             );
@@ -48,7 +171,8 @@ function useNeurons() {
                 {
                     method: "PUT",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type":
+                            "application/json"
                     },
                     body: JSON.stringify({
                         name: neuron.name,
@@ -63,26 +187,34 @@ function useNeurons() {
                 );
             }
 
-            const data = await response.json();
+            const data =
+                await response.json();
 
-            setNeurons((currentNeurons) =>
-                currentNeurons.map((neuron) =>
-                    neuron.id === id
-                        ? data
-                        : neuron
-                )
-            );
+            dispatch({
+                type: "UPDATE_SUCCESS",
+                payload: data
+            });
+
         } catch (error) {
-            setError(error.message);
-        } finally {
-            setUpdatingNeuronId(null);
-        }
+
+            dispatch({
+                type: "LOAD_ERROR",
+                payload: error.message
+            });
+
+        } 
     };
 
+
     const handleDeleteNeuron = async (id) => {
-        setDeletingNeuronId(id);
+
+        dispatch({
+                type: "DELETE_START",
+                payload: id
+            });
 
         try {
+
             const response = await fetch(
                 `http://localhost:3000/api/v1/neurons/${id}`,
                 {
@@ -96,28 +228,40 @@ function useNeurons() {
                 );
             }
 
-            setNeurons((currentNeurons) =>
-                currentNeurons.filter(
-                    (neuron) => neuron.id !== id
-                )
-            );
+            dispatch({
+                type: "DELETE_SUCCESS",
+                payload: id
+            });
+
         } catch (error) {
-            setError(error.message);
-        } finally {
-            setDeletingNeuronId(null);
-        }
+
+            dispatch({
+                type: "LOAD_ERROR",
+                payload: error.message
+            });
+
+        } 
     };
 
-    const handleAddNeuron = async (name, activity) => {
-        setIsSubmitting(true);
+
+    const handleAddNeuron = async (
+        name,
+        activity
+    ) => {
+
+        dispatch({
+            type: "ADD_START"
+        });
 
         try {
+
             const response = await fetch(
                 "http://localhost:3000/api/v1/neurons",
                 {
                     method: "POST",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type":
+                            "application/json"
                     },
                     body: JSON.stringify({
                         name,
@@ -132,22 +276,24 @@ function useNeurons() {
                 );
             }
 
-            const data = await response.json();
+            const data =
+                await response.json();
 
-            setNeurons((currentNeurons) => [
-                ...currentNeurons,
-                data
-            ]);
+            dispatch({
+                type: "ADD_SUCCESS",
+                payload: data
+            });
         } catch (error) {
-            setError(error.message);
-        } finally {
-            setIsSubmitting(false);
-        }
+             dispatch({
+                type: "LOAD_ERROR",
+                payload: error.message
+            });
+        } 
     };
+
 
     return {
         neurons,
-        setNeurons,
         loading,
         error,
 
@@ -161,5 +307,6 @@ function useNeurons() {
         isSubmitting
     };
 }
+
 
 export default useNeurons;
